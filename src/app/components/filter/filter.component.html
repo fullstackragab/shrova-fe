@@ -1,0 +1,62 @@
+<div class="srch-wrpr">
+  <h4 class="ttl-mk">Search</h4>
+
+  <p-button
+    (onClick)="onClearFilter()"
+    [link]="true"
+    label="Clear All"
+  ></p-button>
+</div>
+<div class="items">
+  <div class="field">
+    <label for="titleIncludes">Title Includes</label>
+    <div class="inpt-fld-wrpr">
+      <input
+        pInputText
+        type="text"
+        (keydown)="onTitleIncludes()"
+        id="titleIncludes"
+        [(ngModel)]="filterObj.title"
+      />
+      <p-button
+        (onClick)="onClearTitle()"
+        [link]="true"
+        icon="pi pi-delete-left"
+      ></p-button>
+    </div>
+  </div>
+  <div class="field">
+    <label for="descriptionIncludes">Description Includes</label>
+    <div class="inpt-fld-wrpr">
+      <input
+        pInputText
+        type="text"
+        (keydown)="onDescriptionIncludes()"
+        id="descriptionIncludes"
+        [(ngModel)]="filterObj.description"
+      />
+      <p-button
+        (onClick)="onClearDescription()"
+        [link]="true"
+        icon="pi pi-delete-left"
+      ></p-button>
+    </div>
+  </div>
+  <div class="field">
+    <label for="tagsInclude">Category</label>
+    <p-tree
+      [value]="categories"
+      selectionMode="checkbox"
+      class="p-0"
+      [(selection)]="selectedCategories"
+      (selectionChange)="onCategoryChange()"
+    ></p-tree>
+  </div>
+</div>
+<div class="done-wrapper">
+  <p-button
+    (onClick)="onDone()"
+    [style]="{ width: '200px' }"
+    label="Done"
+  ></p-button>
+</div>

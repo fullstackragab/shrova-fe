@@ -1,0 +1,47 @@
+.wrpr {
+  width: 100%;
+  margin: auto;
+  padding: 20px;
+  @media (min-width: 760px) {
+    width: 80%;
+    padding: 60px;
+  }
+}
+
+.margin-top {
+  margin-top: 20px;
+}
+
+.form {
+  gap: 10px;
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+}
+.fields {
+  display: grid;
+  gap: 20px;
+  margin-bottom: 20px;
+  @media (min-width: 760px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.fields-full {
+  display: grid;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.filed {
+  display: grid;
+  grid-template-columns: auto;
+  width: 100%;
+  @media (min-width: 760px) {
+    width: 500px;
+  }
+}
+.field label {
+  display: block;
+}
+.field input {
+  width: 100%;
+}

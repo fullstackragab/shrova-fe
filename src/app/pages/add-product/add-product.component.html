@@ -1,0 +1,254 @@
+<div class="pg-wrpr">
+  <p-toast
+    [breakpoints]="{ '760px': { width: '90%' } }"
+    [position]="'top-right'"
+  ></p-toast>
+  <p-confirmDialog></p-confirmDialog>
+  <div class="brd-wrpr">
+    <app-breadcrumb [items]="items"></app-breadcrumb>
+  </div>
+  <div class="wrapper">
+    <form [formGroup]="form" (submit)="onSubmit()" class="form">
+      <div class="row">
+        <div class="group">
+          <p-panel header="Main Details">
+            <div class="fields-full">
+              <div class="field">
+                <label for="price">Title<app-star></app-star></label>
+                <input
+                  pInputText
+                  type="text"
+                  formControlName="title"
+                  id="title"
+                />
+              </div>
+            </div>
+            <div class="fields-full">
+              <div class="field">
+                <label for="topic">Category<app-star></app-star></label>
+
+                <div class="card flex justify-content-center">
+                  <p-dropdown
+                    [options]="categories"
+                    placeholder="Select a Category"
+                    [group]="false"
+                    [filter]="true"
+                    [optionLabel]="'title'"
+                    [optionValue]="'id'"
+                    (onChange)="onChangeCategory()"
+                    filterBy="title"
+                    class="dropdown"
+                    formControlName="category"
+                  >
+                    <ng-template let-group pTemplate="group">
+                      <div class="flex align-items-center">
+                        <span>{{ group.title }}</span>
+                      </div>
+                    </ng-template>
+                  </p-dropdown>
+                </div>
+              </div>
+            </div>
+            <div class="fields-full">
+              <div class="field">
+                <label for="price">Price<app-star></app-star></label>
+                <input
+                  pInputText
+                  type="number"
+                  formControlName="price"
+                  id="price"
+                />
+              </div>
+            </div>
+            <div class="fields-full">
+              <div class="field">
+                <label for="stock">Stock<app-star></app-star></label>
+                <input
+                  pInputText
+                  type="number"
+                  formControlName="stock"
+                  id="stock"
+                />
+              </div>
+            </div>
+          </p-panel>
+        </div>
+        <div class="group">
+          <p-panel header="Dimensions">
+            <div class="fields-full">
+              <div class="field">
+                <label for="distanceUnit"
+                  >Distance Unit<app-star></app-star
+                ></label>
+                <p-dropdown
+                  formControlName="distanceUnit"
+                  [options]="distanceUnits"
+                  optionLabel="title"
+                  optionValue="id"
+                  placeholder="Select Distance Unit"
+                ></p-dropdown>
+              </div>
+            </div>
+            <div class="fields-full">
+              <div class="field">
+                <label for="length">Length<app-star></app-star></label>
+                <input
+                  pInputText
+                  type="number"
+                  formControlName="length"
+                  id="length"
+                />
+              </div>
+            </div>
+            <div class="fields-full">
+              <div class="field">
+                <label for="width">Width<app-star></app-star></label>
+                <input
+                  pInputText
+                  type="number"
+                  formControlName="width"
+                  id="width"
+                />
+              </div>
+            </div>
+            <div class="fields-full">
+              <div class="field">
+                <label for="height">Height<app-star></app-star></label>
+                <input
+                  pInputText
+                  type="number"
+                  formControlName="height"
+                  id="height"
+                />
+              </div>
+            </div>
+            <div class="fields-full">
+              <div class="field">
+                <label for="massUnit">Mass Unit<app-star></app-star></label>
+                <p-dropdown
+                  formControlName="massUnit"
+                  [options]="massUnits"
+                  optionLabel="title"
+                  optionValue="id"
+                  placeholder="Select Mass Unit"
+                ></p-dropdown>
+              </div>
+            </div>
+            <div class="fields-full">
+              <div class="field">
+                <label for="weight">Weight<app-star></app-star></label>
+                <input
+                  pInputText
+                  type="number"
+                  formControlName="weight"
+                  id="weight"
+                />
+              </div>
+            </div>
+          </p-panel>
+        </div>
+      </div>
+
+      <div class="margin-top">
+        <p-panel header="Image">
+          <div class="field">
+            <p-fileUpload
+              mode="basic"
+              chooseLabel="Choose"
+              accept="image/*"
+              (onSelect)="onSelectMainImage($event, fileUpload)"
+              #fileUpload
+            ></p-fileUpload>
+            <img class="prvw-img" [src]="form.value.imageUrl" />
+          </div>
+        </p-panel>
+      </div>
+      <div class="margin-top">
+        <p-panel header="Product Images" class="private">
+          <div class="field">
+            <div class="img-upload">
+              <p-fileUpload
+                mode="basic"
+                [multiple]="true"
+                chooseLabel="Choose"
+                accept="image/*"
+                (onSelect)="onSelectProductImages($event, imagesUpload)"
+                #imagesUpload
+              ></p-fileUpload>
+            </div>
+            @if(isLoadingProductImages) {
+            <app-loading></app-loading>
+            }@else {
+            <p-orderList
+              [value]="productImages"
+              [listStyle]="{ 'max-height': '50rem' }"
+              [dragdrop]="true"
+              #orderList
+            >
+              <ng-template let-image pTemplate="item">
+                <div
+                  class="img-itm flex flex-wrap p-2 align-items-center gap-3"
+                >
+                  <img
+                    [src]="image.downloadUrl"
+                    [alt]="image.originalName"
+                    class="itmImg shadow-2 flex-shrink-0 border-round"
+                  />
+                  <p-button
+                    class="trsh-icn"
+                    icon="pi pi-trash"
+                    (onClick)="onDeleteProductImage(image.id)"
+                  ></p-button>
+                </div>
+              </ng-template>
+            </p-orderList>
+            }
+          </div>
+        </p-panel>
+      </div>
+      <div class="margin-top">
+        <p-panel header="Description">
+          <quill-editor
+            [style]="{ width: '100%', height: '500px' }"
+            formControlName="description"
+            [format]="'html'"
+          ></quill-editor>
+        </p-panel>
+      </div>
+
+      <div class="margin-top">
+        <div class="group group-1">
+          <div class="group-1-actions">
+            <p-button
+              class="checkout"
+              type="submit"
+              label="Save"
+              [loading]="isSavingProduct"
+              [disabled]="form.invalid || isSavingProduct"
+            ></p-button>
+
+            <p-toggleButton
+              formControlName="published"
+              onLabel="Published"
+              offLabel="Not Published"
+              (onChange)="onPublish()"
+            ></p-toggleButton>
+          </div>
+        </div>
+      </div>
+    </form>
+    <!-- @if (book && ad.status === Status.draft) {
+    <p-divider></p-divider>
+    <div class="delete-ad-wrapper">
+      <p-button
+        (click)="onDeleteAd()"
+        icon="pi pi-times"
+        label="Delete"
+        [severity]="'danger'"
+        styleClass="p-button-danger"
+        [text]="true"
+      ></p-button>
+    </div>
+    } -->
+  </div>
+</div>

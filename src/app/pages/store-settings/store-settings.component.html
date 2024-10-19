@@ -1,0 +1,66 @@
+<div class="wrpr">
+  <div class="addrs">
+    <form [formGroup]="form" (ngSubmit)="onSave()">
+      <p-panel header="Store Name"
+        ><div class="fields-full">
+          <div class="field">
+            <label for="storeName">Store Name<app-star></app-star></label>
+            <input
+              pInputText
+              id="storeName"
+              type="text"
+              formControlName="storeName"
+            />
+          </div>
+        </div>
+      </p-panel>
+
+      <div class="margin-top">
+        <p-panel header="Store Address">
+          <div class="fields-full">
+            <div class="field">
+              <label for="street1">Street1<app-star></app-star></label>
+              <input
+                pInputText
+                id="street1"
+                type="text"
+                formControlName="street1"
+              />
+            </div>
+
+            <div class="field">
+              <label for="city">City<app-star></app-star></label>
+              <input pInputText id="city" type="text" formControlName="city" />
+            </div>
+            <div class="field">
+              <label for="state">State<app-star></app-star></label>
+              <input
+                pInputText
+                id="state"
+                type="text"
+                formControlName="state"
+              />
+            </div>
+            <div class="field">
+              <label for="zip">Zip<app-star></app-star></label>
+              <input pInputText id="zip" type="text" formControlName="zip" />
+            </div>
+            <div class="field">
+              <label for="country">Country<app-star></app-star></label>
+              <input
+                pInputText
+                id="country"
+                type="text"
+                formControlName="country"
+              />
+            </div>
+          </div>
+        </p-panel>
+      </div>
+
+      <div class="margin-top">
+        <p-button type="submit" label="Save"></p-button>
+      </div>
+    </form>
+  </div>
+</div>

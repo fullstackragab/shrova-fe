@@ -1,0 +1,27 @@
+<div class="pg-wrpr">
+  @if (product && !isLoading) {
+  <div class="wrapper">
+    <div class="image-wrapper">
+      <!-- <img [src]="product.imageUrl" class="img" /> -->
+      <app-product-images [images]="images"></app-product-images>
+    </div>
+    <div class="content">
+      <div class="btns-wrpr">
+        <app-buy-buttons [product]="product"></app-buy-buttons>
+      </div>
+      <div class="title">{{ product.title }}</div>
+      <div class="dscrptn-ttl">Description</div>
+      <quill-view-html
+        class="dscrptn"
+        [content]="product.description"
+        [sanitize]="false"
+        theme="snow"
+      ></quill-view-html>
+    </div>
+  </div>
+  } @if (isLoading) {
+  <div class="ld-wrpr">
+    <app-loading></app-loading>
+  </div>
+  }
+</div>

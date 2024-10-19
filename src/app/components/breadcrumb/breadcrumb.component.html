@@ -1,0 +1,10 @@
+<div class="lnks">
+  <div class="home lnk" routerLink="/"><i class="pi pi-home"></i></div>
+  @for (item of items; track $index) {
+  <div class="sprtr"><i class="pi pi-chevron-right"></i></div>
+  @if (item.link) {
+  <div class="lnk" [routerLink]="item.link">{{ item.label }}</div>
+  } @else {
+  <div class="txt">{{ item.label }}</div>
+  } }
+</div>

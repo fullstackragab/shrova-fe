@@ -1,0 +1,99 @@
+@import "quill/dist/quill.snow.css";
+@import "primeng/resources/themes/bootstrap4-light-purple/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+:root {
+  --main-color: #f3f3f3;
+  --accent-color-2: #1e171f;
+  --accent-color-1: #883cae;
+
+  --footer-background: #262426;
+  --footer-text: #efe4e4;
+  --search-input-height: 48px;
+}
+html,
+body {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  color: var(--accent-color-2);
+  background-color: var(--accent-color-1);
+  min-height: 100%;
+  position: relative;
+  overflow-x: hidden;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: white;
+}
+.link {
+  cursor: pointer;
+  text-decoration: none;
+}
+a:link,
+a:visited,
+.link:link,
+.link:visited {
+  text-decoration: none;
+  color: var(--accent-color-2);
+}
+.link:hover,
+a:hover {
+  filter: brightness(1.05);
+}
+.description-panel .p-panel .p-panel-content {
+  padding: 0px;
+}
+.main-title {
+  font-size: 26px;
+  font-weight: 300;
+  text-align: center;
+  color: var(--accent-color-1);
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+.dscrptn .ql-editor p,
+.dscrptn .ql-editor span {
+  cursor: default;
+}
+.error {
+  font-size: 0.6;
+  color: red;
+}
+.rounded {
+  border-radius: 6px !important;
+}
+.pre-text {
+  font-size: medium;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  line-height: 26px;
+  white-space: pre;
+  max-width: 100%;
+  text-wrap: wrap;
+}
+.page-text {
+  padding: 20px 20px;
+  padding-top: 0px;
+  @media (min-width: 760px) {
+    padding: 20px 100px;
+    padding-top: 0px;
+  }
+}
+.pg-wrpr {
+  margin: auto;
+  padding: 20px 10px;
+  @media (min-width: 760px) {
+    width: 90%;
+  }
+}
+.plcy-pnt-ttl {
+  font-weight: bold;
+}
+.plcy-pnt-sbttl {
+  margin: 10px 0px;
+}
+.plcy-pnt-txt {
+  margin-bottom: 20px;
+}

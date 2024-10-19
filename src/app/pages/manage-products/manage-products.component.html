@@ -1,0 +1,47 @@
+<div class="pg-wrpr">
+  <p-confirmDialog></p-confirmDialog>
+  <p-toast
+    [breakpoints]="{ '760px': { width: '90%' } }"
+    [position]="'top-right'"
+  ></p-toast>
+  <div class="brd-wrpr">
+    <app-breadcrumb [items]="items"></app-breadcrumb>
+    <p-button (onClick)="onAdd()" label="+ Add"></p-button>
+  </div>
+  <p-tabView (onChange)="onTabChange($event)" [(activeIndex)]="actvIndx">
+    <p-tabPanel header="Published">
+      <div class="prdcts-wrpr">
+        @if(isLoadingPublished){ Loading... } @else { @for (product of
+        publishedProducts; track product.id) {
+        <app-admin-product-card [product]="product"></app-admin-product-card>
+        } } @if (!isLoadingPublished && publishedProducts &&
+        publishedProducts.length === 0) { No products found! }
+      </div>
+      <div class="paginator-wrapper">
+        <p-paginator
+          (onPageChange)="onPublishedProductsPageChange($event)"
+          [first]="publishedProducts_page * publishedProducts_skip"
+          [rows]="publishedProducts_take"
+          [totalRecords]="publishedProducts_total"
+        ></p-paginator>
+      </div>
+    </p-tabPanel>
+    <p-tabPanel header="Draft">
+      <div class="ads-wrpr">
+        @if(isLoadingDraft){ Loading... } @else { @for (product of
+        draftProducts; track product.id) {
+        <app-admin-product-card [product]="product"></app-admin-product-card>
+        } } @if (!isLoadingDraft && draftProducts && draftProducts.length === 0)
+        { No ads found! }
+      </div>
+      <div class="paginator-wrapper">
+        <p-paginator
+          (onPageChange)="onDraftProductsPageChange($event)"
+          [first]="draftProducts_page * draftProducts_skip"
+          [rows]="draftProducts_take"
+          [totalRecords]="draftProducts_total"
+        ></p-paginator>
+      </div>
+    </p-tabPanel>
+  </p-tabView>
+</div>

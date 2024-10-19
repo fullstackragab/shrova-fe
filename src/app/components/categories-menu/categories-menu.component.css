@@ -1,0 +1,19 @@
+.wrapper {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.item {
+  padding: 20px;
+  cursor: pointer;
+}
+.item:hover {
+  background-color: rgba(128, 128, 128, 0.096);
+}
+.actv {
+  background-color: var(--accent-color-1);
+}

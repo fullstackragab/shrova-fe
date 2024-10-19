@@ -1,0 +1,26 @@
+@if (rate) {
+<div class="wrpr" [ngClass]="{ selected, fastest, cheapest,bestValue }">
+  @if (fastest) {
+  <div class="tg">FASTEST</div>
+  } @if (cheapest) {
+  <div class="tg">CHEAPEST</div>
+  } @if (bestValue) {
+  <div class="tg">BESTVALUE</div>
+  }
+  <div class="prvdr">
+    <img [src]="rate.providerImage75" [alt]="rate.provider" class="img" />
+    <!-- <div class="prvdr ttl">{{ rate.provider }}</div> -->
+  </div>
+  <div class="dtls">
+    @if (rate.servicelevel && rate.servicelevel.name) {
+    <div class="srvc-lvl">{{ rate.servicelevel?.name }}</div>
+    }
+    <div class="trms">{{ rate.durationTerms }}</div>
+    <div class="estmtd-dys">Estimated days: {{ rate.estimatedDays }}</div>
+    @if (rate.attributes && rate.attributes.length > 0) {
+    <div class="atrbts">{{ rate.attributes[0] }}</div>
+    }
+  </div>
+  <div class="amnt">{{ rate.currency + " " + rate.amount }}</div>
+</div>
+}

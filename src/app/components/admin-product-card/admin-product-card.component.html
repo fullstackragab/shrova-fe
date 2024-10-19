@@ -1,0 +1,23 @@
+@if (product) {
+<div class="product">
+  <img
+    [src]="product.imageUrl"
+    [alt]="product.title"
+    class="image"
+    (click)="onImageClick(product.id)"
+    (error)="onImageError($event)"
+  />
+  @if (missingDetails) {
+  <span class="missingDetails" title="Missing some details">
+    <i class="pi pi-info"></i>
+  </span>
+  }
+  <div class="content">
+    <div class="title">{{ product.title | truncate : 40 }}</div>
+    <div class="price">${{ product.price.toFixed(2) }}</div>
+    <div class="actions">
+      <p-button (onClick)="onEdit(product.id)" label="Edit"></p-button>
+    </div>
+  </div>
+</div>
+}

@@ -1,0 +1,18 @@
+<p-divider></p-divider>
+<div class="mn-wrpr">
+  <div class="trk">
+    <a [href]="order.trackingUrl">{{ order.trackingNumber }}</a>
+    <div class="date">{{ order.orderDate | date : "medium" }}</div>
+    <div class="total">${{ order.total }}</div>
+  </div>
+  <div class="items">
+    @for (item of order.items; track $index) {
+    <div class="item">
+      <img [src]="item.imageUrl" alt="" [title]="item.title" class="img" />
+      <div class="qntty">
+        {{ item.quantity }}
+      </div>
+    </div>
+    }
+  </div>
+</div>

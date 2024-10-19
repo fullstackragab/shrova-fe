@@ -1,0 +1,58 @@
+<div class="pg-wrpr">
+  <form (submit)="onSubmit()" class="wrapper" [formGroup]="form">
+    <p-panel header="Sign Up">
+      <div class="container">
+        <div class="group">
+          <label for="" class="label">First Name<app-star></app-star></label>
+          <input
+            pInputText
+            formControlName="firstname"
+            type="text"
+            class="input"
+          />
+        </div>
+        <div class="group">
+          <label for="" class="label">Last Name<app-star></app-star></label>
+          <input
+            pInputText
+            formControlName="lastname"
+            type="text"
+            class="input"
+          />
+        </div>
+        <div class="group">
+          <label for="" class="label">Email<app-star></app-star></label>
+          <input pInputText formControlName="email" type="text" class="input" />
+        </div>
+        <div class="group">
+          <label for="" class="label">Password<app-star></app-star></label>
+          <input
+            pInputText
+            formControlName="password"
+            type="password"
+            class="input"
+          />
+        </div>
+        <div class="submit-group">
+          <button
+            pButton
+            label="Sign Up"
+            [loading]="loading"
+            type="submit"
+            [disabled]="form.invalid"
+          ></button>
+        </div>
+        <p-divider></p-divider>
+        <div class="signin-group">
+          <span>Already have an account?</span>
+          <p-button
+            label="Sign In"
+            type="submit"
+            (onClick)="onSignIn()"
+            [link]="true"
+          ></p-button>
+        </div>
+      </div>
+    </p-panel>
+  </form>
+</div>

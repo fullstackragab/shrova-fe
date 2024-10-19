@@ -1,0 +1,46 @@
+<div
+  class="backdrop"
+  (click)="onItemClicked('')"
+  [ngClass]="{ 'backdrop-visible': opened }"
+></div>
+<nav class="sidenav" [ngClass]="{ 'sidenav-visible': opened }">
+  @if (isLoggedIn) {
+  <div class="fullname">
+    <strong> Hi, {{ fullname }}</strong>
+  </div>
+  <p-divider></p-divider>
+  } @if (!isLoggedIn) {
+  <div (click)="onItemClicked('/login')" class="sidenav-item">Log in</div>
+  <div (click)="onItemClicked('/signup')" class="sidenav-item">Sign up</div>
+  <p-divider></p-divider>
+  } @if (isLoggedIn && isAdmin) {
+  <div class="sidenav-group-title">Admin</div>
+  <div (click)="onItemClicked('/manage-products')" class="sidenav-item">
+    Manage Products
+  </div>
+  <div (click)="onItemClicked('/store-settings')" class="sidenav-item">
+    Store Settings
+  </div>
+  <p-divider></p-divider>
+  } @if (isLoggedIn) {
+  <div class="sidenav-group-title">Orders</div>
+  <div (click)="onItemClicked('/my-orders')" class="sidenav-item">
+    My Orders
+  </div>
+  <p-divider></p-divider>
+  }
+
+  <div class="sidenav-group-title">Categories</div>
+  @for (category of categories; track $index) {
+  <div (click)="onItemClicked('/category/' + category.id)" class="sidenav-item">
+    {{ category.title }}
+  </div>
+  }
+  <p-divider></p-divider>
+
+  @if (isLoggedIn) {
+  <div class="sidenav-group-title">Account</div>
+  <div (click)="onItemClicked('/profile')" class="sidenav-item">Profile</div>
+  <div (click)="onLogout()" class="sidenav-item">Logout</div>
+  }
+</nav>

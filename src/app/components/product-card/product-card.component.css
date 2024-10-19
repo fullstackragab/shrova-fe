@@ -1,0 +1,118 @@
+.product-card {
+  border-radius: 4px;
+  overflow: hidden;
+  /* height: 500px; */
+  transition: 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 20px;
+}
+.product-image {
+  width: 100%;
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: contain;
+}
+.content {
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  /* height: 120px; */
+  display: flex;
+  flex-direction: column;
+}
+
+.tags {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+}
+.tag {
+  padding: 0px 10px;
+  height: 20px;
+  color: white;
+  font-size: 0.8em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+}
+.image-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  /* height: 220px; */
+  cursor: pointer;
+  @media (min-width: 760px) {
+    /* height: 380px; */
+  }
+}
+.image-container img {
+  display: block;
+  object-fit: cover;
+  width: auto;
+  height: auto;
+  @media (min-width: 760px) {
+    max-width: 200px;
+    max-height: 200px;
+  }
+}
+.image-container img:hover {
+  filter: brightness(1.05);
+}
+.img {
+  max-width: 100px;
+  max-height: 100px;
+}
+.actn-btn {
+  position: absolute;
+  bottom: -10px;
+  right: 18%;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.actn-btn:hover {
+  filter: brightness(1.2);
+}
+.title {
+  font-size: 0.8em;
+  color: var(--accent-color-2);
+  font-weight: bold;
+  line-height: 1.5em;
+  text-align: center;
+  @media (min-width: 760px) {
+    font-size: 1em;
+  }
+}
+.subtitle {
+  font-size: 0.6em;
+  margin-top: 6px;
+}
+
+.author {
+  margin-bottom: 8px;
+  font-size: 0.7em;
+  opacity: 0.7;
+}
+.mn-tg {
+  background-color: var(--accent-color-1) !important;
+}
+.dscnt-tg {
+  background-color: #17a2b8 !important;
+}
+.fre-tg {
+  background-color: #28a745 !important;
+}

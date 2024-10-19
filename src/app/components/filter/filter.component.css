@@ -1,0 +1,51 @@
+.items {
+  display: grid;
+  gap: 10px;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+.srch-wrpr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.done-wrapper {
+  width: 100%;
+  padding: 10px;
+  display: grid;
+  place-items: center;
+  @media (min-width: 760px) {
+    display: none;
+  }
+}
+.field input {
+  width: 90%;
+}
+.inpt-fld-wrpr {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 6px;
+  align-items: center;
+}
+.links {
+}
+.ttl-mk {
+  padding: 10px;
+  padding-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.ttl-mk:first-of-type {
+  margin-top: 0px;
+}
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+:host {
+  position: relative;
+}

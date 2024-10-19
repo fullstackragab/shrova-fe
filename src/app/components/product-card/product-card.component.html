@@ -1,0 +1,17 @@
+@if (product) {
+<div class="product-card">
+  <div class="image-container" [routerLink]="['/', 'product', product.id]">
+    <img
+      class="product-image"
+      [alt]="product.title"
+      [src]="product.imageUrl"
+      (error)="onImageError($event)"
+    />
+  </div>
+  <div class="content">
+    <a [routerLink]="['/', 'product', product.id]">
+      <div class="title">{{ product.title | truncate : 90 }}</div>
+    </a>
+  </div>
+</div>
+}

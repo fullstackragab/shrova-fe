@@ -1,0 +1,13 @@
+@if (product) {
+<div class="by-grp">
+  <div class="prc">${{ product.price }}</div>
+  <p-button
+    (onClick)="onBuyProduct()"
+    label="Add to Cart"
+    icon="pi pi-cart-plus"
+    [rounded]="true"
+    class="by-btn"
+  ></p-button>
+</div>
+
+}

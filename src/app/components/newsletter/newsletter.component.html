@@ -1,0 +1,23 @@
+<div class="pg-wrpr">
+  <div class="wrapper">
+    <div class="title">Subscribe Now</div>
+    <div class="subtitle">Get notified upon new content!</div>
+    <form class="form" [formGroup]="form" (submit)="onSubmit()">
+      <input
+        pInputText
+        type="email"
+        formControlName="email"
+        placeholder="Your email"
+        class="input"
+      />
+      <p-button
+        type="submit"
+        [disabled]="form.invalid"
+        [ngClass]="{ disabled: form.invalid }"
+        class="btn"
+        label="Subscribe"
+      >
+      </p-button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+.wrapper {
+  width: 100%;
+  margin: 40px auto;
+  margin-bottom: 100px;
+  @media (min-width: 760px) {
+    width: 500px;
+  }
+}
+.input {
+  width: 100%;
+}
+.container {
+  display: grid;
+  gap: 10px;
+}
+
+.submit-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.signin-group {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.forget-group {
+  display: flex;
+  justify-content: flex-end;
+}

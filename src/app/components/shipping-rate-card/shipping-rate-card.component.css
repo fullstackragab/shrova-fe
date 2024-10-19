@@ -1,0 +1,32 @@
+.wrpr {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto;
+  padding: 10px;
+  margin: 10px;
+  border: 3px solid transparent;
+  @media (min-width: 760px) {
+    grid-template-columns: 100px 1fr 200px;
+  }
+}
+.selected {
+  border: 3px solid green;
+  border-radius: 8px;
+}
+.img {
+  margin: 10px;
+  margin-bottom: 10px;
+  transform: scale(1.4);
+}
+.amnt {
+  font-size: 1.2em;
+}
+.tg {
+  font-size: 1.2em;
+}
+.fastest {
+  background-color: rgba(0, 0, 255, 0.4);
+}
+.cheapest {
+  background-color: rgba(255, 0, 0, 0.4);
+}

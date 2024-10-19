@@ -1,0 +1,159 @@
+<div class="pg-wrpr">
+  <p-tabView (onChange)="onTabChange($event)" [(activeIndex)]="actvIndx">
+    <p-tabPanel header="Basic Details"
+      ><div class="wrapper">
+        <form [formGroup]="form" (submit)="onSubmit()" class="form">
+          <div class="row">
+            <div class="group">
+              <p-panel header="Basic Details">
+                <div class="field">
+                  <label for="firstname">Firstname</label>
+                  <input
+                    pInputText
+                    id="firstname"
+                    type="text"
+                    formControlName="firstname"
+                  />
+                </div>
+                <div class="field">
+                  <label for="lastname">Lastname</label>
+                  <input
+                    pInputText
+                    id="lastname"
+                    type="text"
+                    formControlName="lastname"
+                  />
+                </div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input
+                    pInputText
+                    type="email"
+                    formControlName="email"
+                    id="email"
+                  />
+                </div>
+                <p-button
+                  type="submit"
+                  label="Save"
+                  [disabled]="form.invalid"
+                  class="btn-sbmt"
+                ></p-button>
+              </p-panel>
+            </div>
+          </div>
+        </form></div
+    ></p-tabPanel>
+    <p-tabPanel header="Address">
+      <div class="wrapper">
+        <p-button label="+Add" (click)="visible = true"></p-button>
+        <p-dialog
+          header="Address"
+          [(visible)]="visible"
+          [modal]="true"
+          [breakpoints]="{ '760px': { width: '90%' } }"
+          [style]="{ width: '500px' }"
+          [contentStyle]="{ padding: '20px', 'padding-top': '0px' }"
+        >
+          <form [formGroup]="formAddress" class="form">
+            <div class="field">
+              <label for="name">Name<app-star></app-star></label>
+              <input pInputText id="name" type="text" formControlName="name" />
+            </div>
+            <div class="field">
+              <label for="street1">Street1<app-star></app-star></label>
+              <input
+                pInputText
+                id="street1"
+                type="text"
+                formControlName="street1"
+              />
+            </div>
+            <div class="field">
+              <label for="city">City<app-star></app-star></label>
+              <input pInputText id="city" type="text" formControlName="city" />
+            </div>
+            <div class="field">
+              <label for="state">State<app-star></app-star></label>
+              <input
+                pInputText
+                id="state"
+                type="text"
+                formControlName="state"
+              />
+            </div>
+            <div class="field">
+              <label for="zip">Zip<app-star></app-star></label>
+              <input pInputText id="zip" type="text" formControlName="zip" />
+            </div>
+            <div class="field">
+              <label for="country">Country<app-star></app-star></label>
+              <input
+                pInputText
+                id="country"
+                type="text"
+                formControlName="country"
+              />
+            </div>
+            <div class="field">
+              <label for="type">Type<app-star></app-star></label>
+              <p-dropdown
+                formControlName="type"
+                [options]="addressTypes"
+                optionLabel="title"
+                optionValue="id"
+                placeholder="Select Address Type"
+              ></p-dropdown>
+            </div>
+            <div class="field dflt-fld">
+              <p-checkbox
+                [binary]="true"
+                formControlName="isDefault"
+                label="Set Default"
+              ></p-checkbox>
+            </div>
+            <p-button
+              class="btn-save"
+              (onClick)="onSaveAddress()"
+              label="Save"
+            ></p-button>
+          </form>
+        </p-dialog>
+        @if (!isLoading) {
+        <div class="addresses">
+          @for (address of addresses; track $index) {
+          <div class="address">
+            <div class="p1">
+              {{
+                address.street1 +
+                  ", " +
+                  address.city +
+                  ", " +
+                  address.state +
+                  ", " +
+                  address.zip +
+                  ", " +
+                  address.country
+              }}
+            </div>
+            <div class="p2">
+              {{ address.type === shippingTypeKey ? "Shipping" : "Billing" }}
+            </div>
+            <div class="p3">
+              @if (address.isDefault) {<i class="pi pi-check"></i>} @else {
+              <p-button
+                (onClick)="onSetDefault(address.id, address.type)"
+                label="Set Default"
+              ></p-button>
+              }
+            </div>
+          </div>
+          }
+        </div>
+        }@else {
+        <app-loading></app-loading>
+        }
+      </div>
+    </p-tabPanel>
+  </p-tabView>
+</div>

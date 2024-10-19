@@ -1,0 +1,62 @@
+.form {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 10px;
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+}
+.btn-save {
+  margin-top: 20px;
+}
+.dflt-fld {
+  margin-top: 10px;
+}
+.filed {
+  display: grid;
+  grid-template-columns: auto;
+  width: 100%;
+  @media (min-width: 760px) {
+    width: 500px;
+  }
+}
+.field label {
+  display: block;
+}
+.field input {
+  width: 100%;
+}
+.input {
+  padding: 6px;
+  outline: none;
+  width: 100%;
+  margin: auto;
+  @media (min-width: 760px) {
+    width: 500px;
+  }
+}
+.btn-sbmt {
+  margin-top: 20px;
+  display: block;
+}
+.error-message {
+  color: red;
+  font-size: 0.8em;
+}
+.addresses {
+  padding-top: 20px;
+}
+.address {
+  border: 1px solid rgba(128, 128, 128, 0.4);
+  background-color: rgba(128, 128, 128, 0.2);
+  border-radius: 4px;
+  padding: 10px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 100px 100px;
+  margin-top: 10px;
+}
+.address .p2,
+.address .p3 {
+  place-self: center;
+}

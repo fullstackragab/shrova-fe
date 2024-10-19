@@ -1,0 +1,13 @@
+<div class="wrpr">
+  <img class="preview" [src]="selectedImage" alt="" />
+  <div class="thumbs">
+    @for (image of _images; track $index) {
+    <img
+      class="thumb"
+      (click)="selectedImage = image"
+      [src]="image"
+      [ngClass]="{ selected: selectedImage === image }"
+    />
+    }
+  </div>
+</div>

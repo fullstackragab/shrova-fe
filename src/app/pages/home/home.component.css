@@ -1,0 +1,7 @@
+.products {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  @media (min-width: 760px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}

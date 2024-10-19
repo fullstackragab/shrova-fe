@@ -1,0 +1,6 @@
+<app-feature></app-feature>
+<div class="products">
+  @for (product of products; track $index) {
+  <app-product-card [product]="product"></app-product-card>
+  }
+</div>

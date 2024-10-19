@@ -1,0 +1,85 @@
+@if (isLoggedIn) {
+<header class="wrapper-logged-in">
+  <div class="brand">
+    <img routerLink="/" src="assets/images/logo.png" alt="" class="logo link" />
+    <div class="brand-name link" routerLink="/">
+      {{ storeName || "Shrova Mall" }}
+    </div>
+  </div>
+  <div class="search-group">
+    <input
+      type="search"
+      [(ngModel)]="searchTerm"
+      (keydown.enter)="onSearch()"
+      class="search-input"
+      placeholder="Search"
+    />
+    <div class="search-icon-wrapper link" (click)="onSearch()">
+      <img src="assets/icons/search.png" alt="" class="search-icon" />
+    </div>
+  </div>
+  <div class="menu-group">
+    <p-button
+      (onClick)="onSearch()"
+      class="btn-srch"
+      [text]="true"
+      icon="pi pi-search"
+    ></p-button>
+    <div class="cart" routerLink="/cart">
+      <i
+        class="pi pi-shopping-cart"
+        [style]="{ 'font-size': '1.6em' }"
+        pBadge
+        [value]="count().toString()"
+      ></i>
+      <span class="cart-total">${{ total() | number : "1.2-2" }}</span>
+    </div>
+    <img
+      src="assets/images/other/menu.png"
+      (click)="toggleSidenav()"
+      alt=""
+      class="menu-icon link"
+    />
+  </div>
+</header>
+} @else {
+<header class="wrapper">
+  <div class="brand">
+    <img routerLink="/" src="assets/images/logo.png" alt="" class="logo link" />
+    <div class="brand-name link" routerLink="/">
+      {{ storeName || "Shrova Mall" }}
+    </div>
+  </div>
+  <div class="search-group">
+    <input
+      type="search"
+      [(ngModel)]="searchTerm"
+      (keydown.enter)="onSearch()"
+      class="search-input"
+      placeholder="Search"
+    />
+    <div class="search-icon-wrapper link" (click)="onSearch()">
+      <img src="assets/icons/search.png" alt="" class="search-icon" />
+    </div>
+  </div>
+  <div class="auth-group">
+    <p-button (onClick)="onLogin()" [outlined]="true" label="Login"></p-button>
+    <p-button (onClick)="onSignup()" label="Sign Up"></p-button>
+  </div>
+  <div class="menu-group">
+    <p-button
+      (onClick)="onSearch()"
+      class="btn-srch"
+      [text]="true"
+      icon="pi pi-search"
+    ></p-button>
+    <img
+      src="assets/images/other/menu.png"
+      (click)="toggleSidenav()"
+      alt=""
+      class="menu-icon link"
+    />
+  </div>
+</header>
+}
+<app-categories-menu class="lrg"></app-categories-menu>

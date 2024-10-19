@@ -1,0 +1,41 @@
+.wrpr {
+  width: 100%;
+  margin: 10px auto;
+  @media (min-width: 760px) {
+    width: 80%;
+  }
+}
+.total {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 80%;
+  margin: auto;
+}
+.value-pair {
+  width: 300px;
+  display: flex;
+  gap: 60px;
+  justify-content: space-between;
+  padding: 10px;
+}
+.btn-cntnr {
+  width: 80%;
+  display: flex;
+  margin: auto;
+  justify-content: flex-end;
+  padding-top: 10px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.dvdr {
+  width: 300px;
+}
+.items {
+  display: grid;
+  grid-template-columns: auto;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-radius: 10px;
+  padding: 40px;
+  margin: 10px;
+}

@@ -1,0 +1,30 @@
+.wrpr {
+  padding-top: 40px;
+}
+.ttl {
+  text-align: center;
+  font-size: 1.6em;
+  margin: auto;
+  margin: 10px auto;
+  margin-bottom: 30px;
+}
+.epty {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 40px 0px;
+}
+.prdcts {
+  width: 100%;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, auto);
+  @media (min-width: 760px) {
+    grid-template-columns: repeat(6, auto);
+  }
+}
+.pgntr-wrpr {
+  margin-bottom: 40px;
+}

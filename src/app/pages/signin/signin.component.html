@@ -1,0 +1,53 @@
+<div class="pg-wrpr">
+  <form (submit)="onSubmit()" class="wrapper" [formGroup]="form">
+    <p-panel header="Login">
+      <div class="container">
+        <div class="group">
+          <label for="" class="label"></label>
+          <input
+            pInputText
+            formControlName="email"
+            placeholder="Email"
+            type="text"
+            class="input"
+          />
+        </div>
+        <div class="group">
+          <label for="" class="label"></label>
+          <input
+            pInputText
+            formControlName="password"
+            type="password"
+            class="input"
+            placeholder="Password"
+          />
+        </div>
+        <div class="submit-group">
+          <button
+            pButton
+            type="submit"
+            label="Login"
+            [loading]="loading"
+          ></button>
+          <p-button
+            label="Forget Password"
+            type="button"
+            (onClick)="onForgetPassword()"
+            [link]="true"
+          ></p-button>
+        </div>
+
+        <p-divider></p-divider>
+        <div class="signin-group">
+          <span>Don't have an account?</span>
+          <p-button
+            label="Sign Up"
+            type="submit"
+            (onClick)="onSignUp()"
+            [link]="true"
+          ></p-button>
+        </div>
+      </div>
+    </p-panel>
+  </form>
+</div>

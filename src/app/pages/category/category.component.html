@@ -1,0 +1,24 @@
+<div class="wrpr">
+  @if (category) {
+
+  <div class="ttl">{{ category.title }}</div>
+  } @if (products && products.length > 0) {
+  <div class="prdcts">
+    @for (product of products; track product.id) {
+    <app-product-card [product]="product"></app-product-card>
+    }
+  </div>
+  } @else { @if (isLoading) {<app-loading></app-loading>} @else {
+  <div class="epty">No results!</div>
+  } }
+
+  <div class="pgntr-wrpr">
+    <p-paginator
+      (onPageChange)="onPage($event)"
+      [first]="page * take"
+      [rows]="take"
+      [totalRecords]="total"
+      [rowsPerPageOptions]="[20, 50, 100]"
+    ></p-paginator>
+  </div>
+</div>

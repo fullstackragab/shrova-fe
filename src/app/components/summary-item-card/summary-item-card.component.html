@@ -1,0 +1,23 @@
+@if (item) {
+<div class="wrapper">
+  <div class="item">
+    <div class="grp-1">
+      <img [src]="item.imageUrl" [alt]="item.title" class="image" />
+      <div class="name">
+        {{ item.title }}
+      </div>
+    </div>
+    <div class="grp-2">
+      <div class="quantity">
+        {{ item.quantity }}
+      </div>
+      <div class="price">
+        <strong>${{ item.price.toFixed(2) }}</strong>
+      </div>
+      <div class="subtotal">
+        <strong>${{ item.subtotal.toFixed(2) }}</strong>
+      </div>
+    </div>
+  </div>
+</div>
+}

@@ -1,0 +1,53 @@
+@if (isLoading) {<app-loading></app-loading>} @else if (summary) {
+<div class="wrpr">
+  <div class="items shadow">
+    <div class="title">
+      <strong>{{
+        summary.count === 1 ? summary.count + " item" : summary.count + " items"
+      }}</strong>
+    </div>
+    <!-- <div class="arrival">
+            <strong>Arrives by Wed, Jan 24</strong>
+          </div> -->
+    <div class="content">
+      @for (item of summary.items; track item.id) {
+      <app-summary-item-card [item]="item"></app-summary-item-card>
+      }
+    </div>
+  </div>
+  <aside class="total shadow">
+    <div class="subtotal value-pair">
+      <div>
+        <strong>Subtotal</strong>({{
+          summary.count === 1
+            ? summary.count + " item"
+            : summary.count + " items"
+        }})
+      </div>
+      <div>${{ summary.subtotal.toFixed(2) }}</div>
+    </div>
+    <div class="shipping value-pair">
+      <div><strong>Shipping</strong></div>
+      <div>${{ (+summary.shipping).toFixed(2) }}</div>
+    </div>
+    <p-divider class="dvdr"></p-divider>
+    <div class="estimated-total value-pair">
+      <div><strong>Estimated Total</strong></div>
+      <div class="estimated-total-value">
+        <strong>${{ summary.total.toFixed(2) }}</strong>
+      </div>
+    </div>
+  </aside>
+
+  <div class="btn-cntnr">
+    <p-button
+      [rounded]="true"
+      label="Continue to Payment"
+      (onClick)="onCheckout()"
+      [loading]="paymentClicked"
+      [disabled]="paymentClicked"
+      class="payment"
+    ></p-button>
+  </div>
+</div>
+}

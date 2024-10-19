@@ -1,0 +1,59 @@
+<div class="pg-wrpr" appResize>
+  <div class="wrapper">
+    <div class="ads-wrpr">
+      <div class="results-line">
+        {{ total + (total === 1 ? " result" : " results") }}
+      </div>
+      @if (products && products.length > 0) {
+      <div class="bks-wrpr">
+        @for (product of products; track product.id) {
+        <app-product-card [product]="product"></app-product-card>
+        }
+      </div>
+      } @else { @if (isLoading) {<app-loading></app-loading>} @else {
+      <div class="epty">No results!</div>
+      } }
+    </div>
+
+    @if (isMobile) {
+    <div class="mobile-filter-wrapper">
+      <div class="mobile-results-line">
+        <p-button
+          icon="pi pi-filter"
+          [link]="true"
+          label="Filter"
+          (onClick)="onOpenFilter()"
+        ></p-button>
+        {{ total + (total === 1 ? " result" : " results") }}
+      </div>
+
+      <p-dialog
+        header="Filter"
+        [(visible)]="filterOpen"
+        [modal]="true"
+        [draggable]="false"
+        [resizable]="false"
+        [style]="{ height: '100%', width: '90%' }"
+      >
+        <app-filter
+          (close)="filterOpen = false"
+          (filter)="onFilter($event)"
+        ></app-filter>
+      </p-dialog>
+    </div>
+    } @else {
+    <div class="filter-wrapper">
+      <app-filter (filter)="onFilter($event)"></app-filter>
+    </div>
+    }
+  </div>
+
+  <p-paginator
+    (onPageChange)="onPage($event)"
+    [first]="page * take"
+    [rows]="take"
+    [totalRecords]="total"
+    [rowsPerPageOptions]="[20, 50, 100]"
+    class="divider"
+  ></p-paginator>
+</div>

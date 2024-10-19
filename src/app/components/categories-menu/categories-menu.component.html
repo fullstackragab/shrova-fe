@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <div class="items">
+    @for (category of categories; track $index) {
+    <div
+      class="item"
+      [ngClass]="{ actv: category.id === categoryId }"
+      [routerLink]="['/', 'category', category.id]"
+    >
+      {{ category.title }}
+    </div>
+    }
+  </div>
+</div>

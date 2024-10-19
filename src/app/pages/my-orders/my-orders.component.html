@@ -1,0 +1,18 @@
+@if(isLoading) {
+<app-loading></app-loading>
+} @else {
+<div class="orders">
+  @for (order of orders; track $index) {
+  <app-order-card [order]="order"></app-order-card>
+  }
+</div>
+}
+
+<p-paginator
+  (onPageChange)="onPage($event)"
+  [first]="page * take"
+  [rows]="take"
+  [totalRecords]="total"
+  [rowsPerPageOptions]="[20, 50, 100]"
+  class="divider"
+></p-paginator>

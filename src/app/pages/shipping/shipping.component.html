@@ -1,0 +1,115 @@
+<div class="wrpr">
+  @if (selectedRate) {
+  <div class="selected-shipping">
+    <app-shipping-rate-card [rate]="selectedRate"></app-shipping-rate-card>
+  </div>
+  }
+  <div class="addrs">
+    <form [formGroup]="form">
+      <div class="fields-full">
+        <div class="field">
+          <label for="name">Name<app-star></app-star></label>
+          <input pInputText id="name" type="text" formControlName="name" />
+        </div>
+
+        <div class="field">
+          <label for="street1">Street1<app-star></app-star></label>
+          <input
+            pInputText
+            id="street1"
+            type="text"
+            formControlName="street1"
+          />
+        </div>
+
+        <div class="field">
+          <label for="city">City<app-star></app-star></label>
+          <input pInputText id="city" type="text" formControlName="city" />
+        </div>
+        <div class="field">
+          <label for="state">State<app-star></app-star></label>
+          <input pInputText id="state" type="text" formControlName="state" />
+        </div>
+        <div class="field">
+          <label for="zip">Zip<app-star></app-star></label>
+          <input pInputText id="zip" type="text" formControlName="zip" />
+        </div>
+        <div class="field">
+          <label for="country">Country<app-star></app-star></label>
+          <input
+            pInputText
+            id="country"
+            type="text"
+            formControlName="country"
+          />
+        </div>
+      </div>
+      <div class="btn-updtMthds-wrpr">
+        <p-button
+          (onClick)="onUpdateShipping()"
+          label="Update shipping methods"
+          [disabled]="shouldUpdateShippingMethods"
+        ></p-button>
+      </div>
+    </form>
+
+    <p-panel header="Available methods">
+      @if (isLoading) {<app-loading></app-loading>} @else {
+      <div class="rates">
+        @if (bestValue) {
+        <div class="best-value">
+          BEST VALUE
+          <app-shipping-rate-card
+            (click)="onSelectRate(bestValue)"
+            [rate]="bestValue"
+            [selected]="
+              selectedRate && selectedRate.objectId === bestValue.objectId
+            "
+          ></app-shipping-rate-card>
+        </div>
+        } @if (fastest) {
+        <div class="fastest">
+          FASTEST
+          <app-shipping-rate-card
+            (click)="onSelectRate(fastest)"
+            [rate]="fastest"
+            [selected]="
+              selectedRate && selectedRate.objectId === fastest.objectId
+            "
+          ></app-shipping-rate-card>
+        </div>
+        } @if (cheapest) {
+        <div class="cheapest">
+          CHEAPEST
+          <app-shipping-rate-card
+            (click)="onSelectRate(cheapest)"
+            [rate]="cheapest"
+            [selected]="
+              selectedRate && selectedRate.objectId === cheapest.objectId
+            "
+          ></app-shipping-rate-card>
+        </div>
+        }
+        <p-divider></p-divider>
+        <p-panel header="Other options:" [toggleable]="true" [collapsed]="true">
+          @for (rate of otherRates; track $index) {
+          <app-shipping-rate-card
+            (click)="onSelectRate(rate)"
+            [rate]="rate"
+            [selected]="selectedRate && selectedRate.objectId === rate.objectId"
+          ></app-shipping-rate-card>
+          }
+        </p-panel>
+      </div>
+      }
+    </p-panel>
+  </div>
+  <div class="cntnr">
+    <p-button
+      [rounded]="true"
+      (onClick)="onCheckout()"
+      label="Continue to Checkout"
+      [disabled]="!shouldUpdateShippingMethods"
+    ></p-button>
+  </div>
+</div>

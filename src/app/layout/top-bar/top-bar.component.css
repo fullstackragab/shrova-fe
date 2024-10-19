@@ -1,0 +1,215 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 6fr 2fr;
+  width: 100%;
+  height: 80px;
+  background-color: var(--main-color);
+  color: var(--text-color);
+  padding: 0px 20px;
+  padding-top: 10px;
+  position: relative;
+  z-index: 9;
+  @media (min-width: 760px) {
+    padding: 0px 30px;
+    padding-top: 10px;
+    grid-template-columns: 3fr 3fr 3fr 1fr;
+  }
+}
+.cart {
+  position: relative;
+  cursor: pointer;
+  margin-right: 10px;
+  @media (min-width: 760px) {
+    margin-right: 20px;
+  }
+}
+.cart-total {
+  font-size: 0.8em;
+  position: absolute;
+  bottom: -13px;
+  left: -6px;
+}
+.pricing {
+  margin-right: 20px;
+}
+.wrapper-logged-in {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+  background-color: var(--main-color);
+  color: var(--text-color);
+  padding: 0px 20px;
+  padding-top: 10px;
+  position: relative;
+  z-index: 9;
+  @media (min-width: 760px) {
+    padding: 0px 30px;
+    padding-top: 10px;
+  }
+}
+.post-group {
+  display: none;
+  justify-content: flex-end;
+  align-items: center;
+  @media (min-width: 760px) {
+    display: flex;
+  }
+}
+.auth-group {
+  display: none;
+  justify-content: flex-end;
+  gap: 10px;
+  align-items: center;
+  @media (min-width: 760px) {
+    display: flex;
+  }
+}
+.btn-srch {
+  display: block;
+  @media (min-width: 760px) {
+    display: none;
+  }
+}
+.mbl-bx-vsbl {
+  height: 70px !important;
+}
+.mbl-bx-vsbl .srch-grp-mbl {
+  height: 70px !important;
+}
+.mbl-bx-vsbl .search-input {
+  height: var(--search-input-height) !important;
+}
+.mbl-bx-vsbl .search-input {
+  height: var(--search-input-height) !important;
+}
+.mbl-bx-vsbl .search-icon-wrapper {
+  height: var(--search-input-height) !important;
+}
+.mbl-bx-vsbl .mobile {
+  display: flex !important;
+}
+.srch-grp-mbl {
+  height: 0px !important;
+}
+.mobile-wrapper {
+  display: grid;
+  grid-template-columns: auto;
+  width: 100%;
+  height: 0px;
+  background-color: var(--main-color);
+  color: var(--text-color);
+  padding: 0px 20px;
+  place-items: center;
+  padding-bottom: 6px;
+  transition: height 300ms;
+  @media (min-width: 760px) {
+    display: none;
+    box-shadow: unset;
+  }
+}
+.brand {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  @media (min-width: 760px) {
+    gap: 20px;
+  }
+}
+.brand-name {
+  font-size: 1.2em;
+  padding: 20px 0px;
+  cursor: pointer;
+  @media (min-width: 760px) {
+    font-size: 1.4em;
+  }
+}
+.logo {
+  width: 36px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  @media (min-width: 760px) {
+    width: 39px;
+  }
+}
+.menu-icon {
+  width: 46px;
+  padding: 12px;
+  @media (min-width: 760px) {
+    width: 50px;
+  }
+}
+.search-group {
+  height: 100%;
+  display: none;
+  align-items: center;
+  @media (min-width: 760px) {
+    display: flex;
+    margin-left: -40px;
+  }
+}
+.search-input::placeholder {
+  opacity: 0.6;
+}
+.search-input {
+  width: 100%;
+  height: 0px;
+  border-radius: 50px;
+  outline: none;
+  border: 2px solid #80808059;
+  padding-left: 30px;
+  padding-right: 60px;
+  @media (min-width: 760px) {
+    height: var(--search-input-height);
+  }
+  @media (min-width: 1200px) {
+    min-width: 600px;
+    height: var(--search-input-height);
+  }
+}
+.search-icon-wrapper {
+  background-color: var(--accent-color-1);
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  height: 0px;
+  width: calc(var(--search-input-height) + 10px);
+  margin-left: calc(var(--search-input-height) - 106px);
+  @media (min-width: 760px) {
+    height: calc(var(--search-input-height) - 0px);
+  }
+}
+.search-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 11px;
+  cursor: pointer;
+}
+
+.mobile {
+  display: none;
+  width: 100%;
+  padding-top: 2px;
+  @media (min-width: 760px) {
+    display: none;
+  }
+}
+.menu-group {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.post {
+  margin-right: 20px;
+}
+.lrg {
+  display: none;
+  @media (min-width: 760px) {
+    display: block;
+  }
+}
